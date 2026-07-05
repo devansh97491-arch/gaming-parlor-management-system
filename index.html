@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="HKG Gaming Parlour – Play your favourite console games in the ultimate gaming arena." />
+  <title>HKG Gaming Parlour</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+
+  <!-- ░░░ FLOATING CONTROLLER (cursor-tracking) ░░░ -->
+  <div class="controller-wrap" id="controllerWrap">
+    <svg class="controller-svg" id="controllerSvg" viewBox="0 0 300 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Glow filter -->
+      <defs>
+        <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        <filter id="strongGlow" x="-40%" y="-40%" width="180%" height="180%">
+          <feGaussianBlur stdDeviation="5" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      <!-- Controller body -->
+      <path filter="url(#glow)"
+        d="M80,72 C62,67 34,72 22,102 L27,150 C30,170 48,180 67,175 L91,170 C102,164 112,154 122,143 L150,139 L178,143 C188,154 198,164 209,170 L233,175 C252,180 270,170 273,150 L278,102 C266,72 238,67 220,72 L196,61 C181,53 168,50 150,50 C132,50 119,53 104,61 Z"
+        stroke="#00d4ff" stroke-width="1.8" fill="rgba(0,212,255,0.04)" />
+      <!-- L1 -->
+      <path filter="url(#glow)" d="M82,70 Q93,55 113,59" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" />
+      <!-- L2 trigger -->
+      <path d="M80,66 Q88,44 111,53" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" opacity="0.5" />
+      <!-- R1 -->
+      <path filter="url(#glow)" d="M218,70 Q207,55 187,59" stroke="#00d4ff" stroke-width="2" stroke-linecap="round" />
+      <!-- R2 trigger -->
+      <path d="M220,66 Q212,44 189,53" stroke="#00d4ff" stroke-width="1.2" stroke-linecap="round" opacity="0.5" />
+
+      <!-- Left analog stick -->
+      <circle cx="97" cy="118" r="19" stroke="#00d4ff" stroke-width="1.4" filter="url(#glow)" />
+      <circle cx="97" cy="118" r="11" fill="rgba(0,212,255,0.12)" stroke="#00d4ff" stroke-width="1" />
+      <circle cx="97" cy="118" r="4" fill="#00d4ff" opacity="0.35" />
+
+      <!-- Right analog stick -->
+      <circle cx="187" cy="133" r="19" stroke="#00d4ff" stroke-width="1.4" filter="url(#glow)" />
+      <circle cx="187" cy="133" r="11" fill="rgba(0,212,255,0.12)" stroke="#00d4ff" stroke-width="1" />
+      <circle cx="187" cy="133" r="4" fill="#00d4ff" opacity="0.35" />
+
+      <!-- D-Pad -->
+      <rect x="120" y="109" width="10" height="30" rx="3" stroke="#00d4ff" stroke-width="1.4" />
+      <rect x="110" y="119" width="30" height="10" rx="3" stroke="#00d4ff" stroke-width="1.4" />
+      <circle cx="125" cy="124" r="3" fill="rgba(0,212,255,0.25)" />
+
+      <!-- Action buttons -->
+      <!-- Triangle - green -->
+      <polygon filter="url(#glow)" points="214,87 221,100 207,100" stroke="#00ff88" stroke-width="1.6" fill="none" />
+      <!-- Circle - red -->
+      <circle filter="url(#glow)" cx="228" cy="110" r="6.5" stroke="#ff4466" stroke-width="1.6" />
+      <!-- Cross - blue -->
+      <line filter="url(#glow)" x1="209" y1="113" x2="219" y2="123" stroke="#4499ff" stroke-width="1.8"
+        stroke-linecap="round" />
+      <line filter="url(#glow)" x1="219" y1="113" x2="209" y2="123" stroke="#4499ff" stroke-width="1.8"
+        stroke-linecap="round" />
+      <!-- Square - purple -->
+      <rect filter="url(#glow)" x="199" y="103" width="11" height="11" rx="2" stroke="#cc44ff" stroke-width="1.6" />
+
+      <!-- Share / Options buttons -->
+      <rect x="131" y="86" width="13" height="8" rx="4" stroke="#00d4ff" stroke-width="1" opacity="0.65" />
+      <rect x="156" y="86" width="13" height="8" rx="4" stroke="#00d4ff" stroke-width="1" opacity="0.65" />
+
+      <!-- Touchpad -->
+      <rect x="133" y="98" width="34" height="21" rx="5" stroke="#00d4ff" stroke-width="1"
+        fill="rgba(0,212,255,0.04)" />
+      <!-- Center circle (PS button) -->
+      <circle cx="150" cy="108" r="6" stroke="#00d4ff" stroke-width="1.2" filter="url(#glow)" opacity="0.7" />
+      <!-- Light bar -->
+      <rect x="141" y="120" width="18" height="2" rx="1" fill="#00d4ff" opacity="0.35" />
+    </svg>
+  </div>
+
+  <!-- ░░░ NAVBAR ░░░ -->
+  <nav class="navbar" id="navbar">
+    <a class="nav-logo" href="#home">
+      <span class="logo-hkg">HKG</span>
+      <span class="logo-gaming">Gaming</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#home" class="nav-link active">Home</a></li>
+      <li><a href="#games" class="nav-link">Games</a></li>
+      <li><a href="#play" class="nav-link">Play</a></li>
+      <li><a href="#admin" class="nav-link btn-admin-nav">Admin</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ░░░ HERO ░░░ -->
+  <section id="home" class="hero">
+    <div class="hero-scan-lines"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">Welcome to the Arena</p>
+      <h1 class="hero-title">
+        <span class="title-hkg">HKG</span>
+        <span class="title-gaming">Gaming</span>
+        <span class="title-parlour">Parlour</span>
+      </h1>
+      <p class="hero-sub">Play. Compete. Dominate.</p>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="smoothScroll('games')">Browse Games</button>
+        <button class="btn-outline" onclick="smoothScroll('play')">Start Playing</button>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" id="statGames">–</span><span class="stat-label">Games</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">10+</span><span class="stat-label">Consoles</span></div>
+        <div class="stat-divider"></div>
+        <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">Open</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span></span>
+      <p>Scroll Down</p>
+    </div>
+  </section>
+
+  <!-- ░░░ GAMES GALLERY ░░░ -->
+  <section id="games" class="games-section reveal">
+    <div class="section-header">
+      <p class="section-eyebrow">What's Available</p>
+      <h2 class="section-title">Featured <span class="glow-text">Titles</span></h2>
+      <p class="section-sub">Tap any game card to book your session</p>
+    </div>
+
+    <!-- Static posters row (popular game artwork from web) -->
+    <div class="posters-row">
+      <div class="poster-card" onclick="smoothScroll('play')" title="Grand Theft Auto V">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/271590/library_600x900.jpg" alt="GTA V Poster"
+          loading="lazy" />
+        <div class="poster-overlay"><span>GTA V</span></div>
+      </div>
+      <div class="poster-card" onclick="smoothScroll('play')" title="Cyberpunk 2077">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/library_600x900.jpg" alt="Cyberpunk 2077"
+          loading="lazy" />
+        <div class="poster-overlay"><span>Cyberpunk 2077</span></div>
+      </div>
+      <div class="poster-card" onclick="smoothScroll('play')" title="Elden Ring">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_600x900.jpg" alt="Elden Ring"
+          loading="lazy" />
+        <div class="poster-overlay"><span>Elden Ring</span></div>
+      </div>
+      <div class="poster-card" onclick="smoothScroll('play')" title="God of War">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1593500/library_600x900.jpg" alt="God of War"
+          loading="lazy" />
+        <div class="poster-overlay"><span>God of War</span></div>
+      </div>
+      <div class="poster-card" onclick="smoothScroll('play')" title="Spider-Man: Miles Morales">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1817070/library_600x900.jpg"
+          alt="Spider-Man: Miles Morales" loading="lazy" />
+        <div class="poster-overlay"><span>Miles Morales</span></div>
+      </div>
+      <div class="poster-card" onclick="smoothScroll('play')" title="Red Dead Redemption 2">
+        <img src="https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/library_600x900.jpg"
+          alt="Red Dead Redemption 2" loading="lazy" />
+        <div class="poster-overlay"><span>RDR 2</span></div>
+      </div>
+    </div>
+
+    <!-- DB-driven game cards -->
+    <div class="section-header" style="margin-top:4rem;">
+      <p class="section-eyebrow">Available At Parlour</p>
+      <h2 class="section-title">Our <span class="glow-text">Library</span></h2>
+    </div>
+    <div class="games-grid" id="gamesGrid">
+      <div class="loading-state">
+        <div class="spinner"></div>
+        <p>Loading games…</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ PLAY ZONE ░░░ -->
+  <section id="play" class="play-section reveal">
+    <div class="section-header">
+      <p class="section-eyebrow">Ready to Play?</p>
+      <h2 class="section-title">Play <span class="glow-text">Zone</span></h2>
+    </div>
+    <div class="play-grid">
+      <!-- Start Session -->
+      <div class="glass-card">
+        <div class="card-icon">▶</div>
+        <h3>Start Session</h3>
+        <p class="card-desc">Register your name and pick a game to begin</p>
+        <form id="startSessionForm" autocomplete="off">
+          <div class="form-group">
+            <label for="playerName">Your Name</label>
+            <input type="text" id="playerName" placeholder="e.g. Devansh" required />
+          </div>
+          <div class="form-group">
+            <label for="playerPhone">Phone Number</label>
+            <input type="tel" id="playerPhone" placeholder="e.g. 9988776655" required />
+          </div>
+          <div class="form-group">
+            <label for="gameSelect">Choose Game</label>
+            <select id="gameSelect" required>
+              <option value="">-- Select a Game --</option>
+            </select>
+          </div>
+          <button type="submit" class="btn-primary full-width" id="startBtn">
+            <span>Start Playing</span>
+          </button>
+        </form>
+        <div class="session-result hidden" id="startResult">
+          <div class="result-box success">
+            <p>✅ Session Started!</p>
+            <p>Session ID: <strong id="resultSessionId">–</strong></p>
+            <p class="result-note">Keep this ID to end your session</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- End Session -->
+      <div class="glass-card">
+        <div class="card-icon">⏹</div>
+        <h3>End Session</h3>
+        <p class="card-desc">Enter your session ID to check out and see your bill</p>
+        <form id="endSessionForm" autocomplete="off">
+          <div class="form-group">
+            <label for="sessionId">Session ID</label>
+            <input type="number" id="sessionId" placeholder="e.g. 42" required />
+          </div>
+          <button type="submit" class="btn-primary full-width" id="endBtn">
+            <span>End & Pay</span>
+          </button>
+        </form>
+        <div class="session-result hidden" id="endResult">
+          <div class="result-box bill">
+            <h4>🎮 Session Summary</h4>
+            <div class="bill-row"><span>Player</span><strong id="billCustomer">–</strong></div>
+            <div class="bill-row"><span>Game</span><strong id="billGame">–</strong></div>
+            <div class="bill-row"><span>Duration</span><strong id="billDuration">–</strong></div>
+            <div class="bill-row total"><span>Total Bill</span><strong id="billTotal">–</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Active Sessions -->
+    <div class="active-sessions-wrap">
+      <h3 class="subsection-title">Active Sessions</h3>
+      <div id="activeSessions" class="active-sessions-list">
+        <p class="no-data">No active sessions right now</p>
+      </div>
+      <button class="btn-sm" onclick="loadActiveSessions()">🔄 Refresh</button>
+    </div>
+  </section>
+
+  <!-- ░░░ ADMIN ░░░ -->
+  <section id="admin" class="admin-section reveal">
+    <div class="section-header">
+      <p class="section-eyebrow">Admin Only</p>
+      <h2 class="section-title">Control <span class="glow-text">Panel</span></h2>
+    </div>
+
+    <!-- Login card -->
+    <div class="glass-card admin-login-card" id="adminLoginCard">
+      <div class="card-icon">🔒</div>
+      <h3>Admin Access</h3>
+      <p class="card-desc">Login with your admin credentials to manage the parlour</p>
+      <form id="adminLoginForm" autocomplete="off">
+        <div class="form-group">
+          <label for="adminUser">Username</label>
+          <input type="text" id="adminUser" placeholder="admin" required />
+        </div>
+        <div class="form-group">
+          <label for="adminPass">Password</label>
+          <input type="password" id="adminPass" placeholder="••••••••" required />
+        </div>
+        <button type="submit" class="btn-primary full-width">Login</button>
+      </form>
+    </div>
+
+    <!-- Dashboard (hidden until login) -->
+    <div class="admin-dashboard hidden" id="adminDashboard">
+      <div class="dashboard-header">
+        <h3>👾 Welcome, Admin</h3>
+        <button class="btn-sm danger" onclick="adminLogout()">Logout</button>
+      </div>
+
+      <div class="dashboard-grid">
+        <!-- Add game -->
+        <div class="glass-card">
+          <h4>➕ Add New Game</h4>
+          <form id="addGameForm" autocomplete="off">
+            <div class="form-group">
+              <label>Game Name</label>
+              <input type="text" id="newGameName" placeholder="e.g. Mortal Kombat 11" required />
+            </div>
+            <div class="form-group">
+              <label>Console</label>
+              <input type="text" id="newConsole" placeholder="e.g. PS5" required />
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label>Price / Hour (₹)</label>
+                <input type="number" id="newPrice" placeholder="60" min="1" required />
+              </div>
+              <div class="form-group">
+                <label>Rating (1–5)</label>
+                <input type="number" id="newRating" placeholder="4" min="1" max="5" required />
+              </div>
+            </div>
+            <button type="submit" class="btn-primary full-width">Add Game</button>
+          </form>
+        </div>
+
+        <!-- Manage games -->
+        <div class="glass-card">
+          <h4>⚙️ Manage Games</h4>
+          <div id="adminGamesList" class="admin-games-list">
+            <div class="spinner"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ░░░ FOOTER ░░░ -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <p class="footer-logo"><span class="logo-hkg">HKG</span> Gaming Parlour</p>
+        <p class="footer-tagline">Play. Compete. Dominate.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#games">Games</a>
+        <a href="#play">Play</a>
+        <a href="#admin">Admin</a>
+      </div>
+      <p class="footer-copy">© 2025 HKG Gaming Parlour. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- ░░░ TOAST ░░░ -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ░░░ UPDATE MODAL ░░░ -->
+  <div class="modal-overlay hidden" id="modalOverlay">
+    <div class="modal-box glass-card">
+      <h4 id="modalTitle">Update Game</h4>
+      <div class="form-group">
+        <label id="modalLabel">Value</label>
+        <input type="number" id="modalInput" min="1" />
+      </div>
+      <div class="modal-actions">
+        <button class="btn-primary" id="modalConfirm">Save</button>
+        <button class="btn-sm" onclick="closeModal()">Cancel</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+
+</html>
